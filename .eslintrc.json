@@ -1,0 +1,130 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "src/**/*.spec.ts",
+    "src/**/*.mock.ts",
+    "src/**/typings.d.ts",
+    "src/**/test.ts",
+    "src/jestGlobalMocks.ts",
+    "src/setupJest.ts"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["./src/tsconfig.eslint.json"],
+        "createDefaultProgram": false
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+
+      "rules": {
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/explicit-member-accessibility": [
+          "off",
+          {
+            "accessibility": "explicit"
+          }
+        ],
+        "@typescript-eslint/no-namespace": [0, { "allowDeclarations": false, "allowDefinitionFiles": true }],
+        "@typescript-eslint/no-empty-function": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-require-imports": "error",
+        "@typescript-eslint/no-shadow": ["error"],
+        "@angular-eslint/component-selector": [2, { "type": "element", "prefix": "ngx", "style": "kebab-case" }],
+        "@angular-eslint/directive-selector": [2, { "type": "attribute", "prefix": "ngx", "style": "camelCase" }],
+        "@typescript-eslint/naming-convention": [
+          2,
+          {
+            "selector": "variable",
+            "format": ["camelCase", "UPPER_CASE"],
+            "filter": {
+              "regex": "^Ngx([A-Z][a-z0-9]+)((d)|([A-Z0-9][a-z0-9]+))*([A-Z])?\\$?$",
+              "match": false
+            }
+          }
+        ],
+        "@typescript-eslint/member-ordering": [
+          "error",
+          {
+            "default": {
+              "memberTypes": [
+                "public-decorated-field",
+                "protected-decorated-field",
+                "private-decorated-field",
+                "public-static-field",
+                "protected-static-field",
+                "private-static-field",
+                "public-instance-field",
+                "public-abstract-field",
+                "protected-instance-field",
+                "protected-abstract-field",
+                "private-instance-field",
+                "static-field",
+                "public-field",
+                "instance-field",
+                "protected-field",
+                "private-field",
+                "abstract-field",
+                "constructor",
+                "public-static-method",
+                "protected-static-method",
+                "private-static-method",
+                "public-method",
+                "protected-method",
+                "private-method"
+              ]
+            }
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": 0,
+        "no-shadow": "off",
+        "brace-style": ["off", "1tbs"],
+        "comma-dangle": "off",
+        "complexity": [
+          "error",
+          {
+            "max": 10
+          }
+        ],
+        "default-case": "error",
+        "max-len": [
+          "error",
+          {
+            "code": 200
+          }
+        ],
+        "max-lines": ["error", 1000],
+        "no-constant-condition": "error",
+        "no-empty": "error",
+        "no-null/no-null": "off",
+        "no-redeclare": "error",
+        "prefer-const": [
+          "error",
+          {
+            "destructuring": "all"
+          }
+        ],
+        "no-underscore-dangle": 0,
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "no-extra-boolean-cast": 0,
+        "no-prototype-builtins": 0
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@angular-eslint/template/accessibility"],
+      "rules": {
+        "@angular-eslint/template/click-events-have-key-events": 0,
+        "@angular-eslint/template/interactive-supports-focus": 0,
+        "@angular-eslint/template/mouse-events-have-key-events": 0,
+        "@angular-eslint/template/table-scope": 0,
+        "@angular-eslint/template/label-has-associated-control": 0
+      }
+    }
+  ]
+}
